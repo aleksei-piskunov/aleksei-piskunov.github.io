@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% unless page.url == '/' %}{{ page.title | escape }} · {% endunless %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <meta name="theme-color" content="#faf9f6">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>{{ site.title }}</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          {% for item in site.data.navigation %}
+          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="content{% if page.wide %} content--wide{% endif %}" tabindex="-1">
+    <h1>{{ page.title }}</h1>
+    {% if page.photo %}<img class="profile-photo" src="{{ page.photo | relative_url }}" alt="Aleksei Piskunov" width="240" height="245">{% endif %}
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <span>Aleksei Piskunov</span>
+    <a href="https://github.com/aleksei-piskunov">GitHub</a>
+  </footer>
+</body>
+</html>

@@ -1,96 +1,109 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Персональный сайт Aleksei Piskunov
 
-![Academic Pages template example](images/themes/homepage-light.png "Academic Pages template example")
+Простой сайт на Jekyll: один Markdown-файл на раздел. Первоначально подготовлен как локальный предварительный вариант; публикация в GitHub Pages не выполнена.
 
-# Getting Started
+## Где редактировать содержание
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+| Файл | Страница |
+| --- | --- |
+| `index.md` | О себе, исследовательские интересы, контакты |
+| `research.md` | Исследования, препринты и работы в подготовке |
+| `teaching.md` | Преподавание и организация семинаров |
+| `talks.md` | Доклады и постеры |
+| `conferences.md` | Конференции и школы |
 
-See more info at https://academicpages.github.io/
+В начале каждой страницы есть небольшой блок между строками `---`: название и постоянный адрес. Для обычного обновления его менять не нужно. Всё ниже — текст страницы.
 
-## Running locally
+После размещения на GitHub: откройте нужный файл → нажмите карандаш → внесите изменения → нажмите **Commit changes**. Если настроена публикация Pages из ветки, GitHub автоматически пересоберёт сайт. Для предварительного просмотра изменений можно использовать локальную сборку или сначала сохранить их в отдельной ветке.
 
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+## Добавить доклад
 
-1. Clone the repository and made updates as detailed above.
+Откройте `talks.md` и вставьте пункт в подходящую часть списка. Два пробела в конце первой строки создают перенос перед местом выступления:
 
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
-
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and `.bundle`.
-
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change to Markdown (*.md) and HTML files, while changes to the core template and configuration (i.e., `_config.yml`) will require stoping and restarting Jekyll.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-chmod -R 777 .
-docker compose up
+```markdown
+- **2027 — Название доклада**  
+  Название семинара, университет. [Слайды](https://example.org/slides.pdf)
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Список не сортируется автоматически: ставьте новые записи в нужное место сами. Секции Selected и All независимы: если материал должен быть в обоих списках, добавьте его в оба.
 
-### Using the DevContainer in VS Code
+## Добавить работу
 
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development coontainer configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
+Откройте `research.md` и добавьте пункт в нужный раздел:
 
-# Maintenance
+```markdown
+- **Название работы.**  
+  With имя соавтора. [arXiv](https://arxiv.org/abs/идентификатор)
+```
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+Для нового курса или конференции скопируйте соседний пункт в соответствующем файле.
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+## Основы разметки
 
-## Bugfixes and enhancements
+- `## Заголовок` — раздел страницы.
+- `### Заголовок` — подраздел.
+- `**текст**` — полужирный.
+- `[подпись](адрес)` — ссылка.
+- Пустая строка разделяет абзацы.
+- Строки `<details markdown="1">`, `<summary>…</summary>`, `</details>` создают раскрывающийся полный список. Пишите записи между ними, сохраняя пустые строки.
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+CV и Research Statement открываются по прежним ссылкам Google Drive на главной странице. Если меняете ссылку или дату обновления, исправьте их в `index.md`.
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+## Фотография на главной
 
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
+Фотография со старого сайта сохранена в `assets/images/aleksei-piskunov.jpg`. Чтобы заменить её, загрузите новый файл с тем же именем. Если имя или формат другие, измените строку `photo: /assets/images/aleksei-piskunov.jpg` в начале `index.md`. Справа от биографии фото появляется автоматически; на узком экране оно размещается над текстом.
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+## Ширина текста
+
+Главная и Research используют расширенную область: 1120 px вместе с боковыми отступами вместо 844 px. Чтобы сделать другую страницу такой же широкой, добавьте `wide: true` в её начальный блок между `---`. Общая ширина задана в `assets/style.css`, правило `.content--wide`.
+
+## PDF и другие материалы на GitHub
+
+PDF можно хранить в том же репозитории, например `files/cv.pdf`, `files/research-statement.pdf`, `files/talks/2026-seminar.pdf` и `files/posters/2026-moduli.pdf`. После добавления самих PDF замените ссылки в Markdown на локальные адреса с фильтром Jekyll:
+
+```liquid
+[CV]({{ '/files/cv.pdf' | relative_url }})
+[Research Statement]({{ '/files/research-statement.pdf' | relative_url }})
+```
+
+Чтобы обновить документ, загрузите его новую версию в ту же папку с тем же именем через **Add file → Upload files**, затем **Commit changes**. URL останется прежним; после пересборки сайта посетители получат новую версию. Дату обновления рядом со ссылкой меняйте в `index.md`. Для докладов и постеров добавляйте ссылки в `talks.md`. Сейчас CV и Research Statement ещё ссылаются на Google Drive; сами PDF в репозиторий пока не перенесены.
+
+Через браузер GitHub принимает файлы до 25 MiB; опубликованный GitHub Pages сайт ограничен 1 GB. Для обычных PDF этого обычно достаточно. История репозитория сохраняет прежние версии файлов: замена PDF не удаляет старую версию из истории.
+
+## Оформление и меню
+
+Меню: `_data/navigation.yml`. Цвета, размеры и отступы: `assets/style.css`. Общая структура страницы: `_layouts/page.html`. Для обычного обновления содержания эти файлы менять не нужно.
+
+Внешние шрифты, аналитика и JavaScript отсутствуют. Полные списки открываются встроенным элементом браузера. Сложные формулы пока не обрабатываются MathJax/KaTeX; их поддержку можно добавить при необходимости. Математические тексты исходного сайта перенесены без смысловых изменений.
+
+## Локальный просмотр
+
+Для просмотра уже подготовленной версии без установки программ откройте `preview/index.html` в браузере: внутренние ссылки работают как обычные файлы. Это снимок результата, а не исходник для редактирования. После изменения Markdown нужно снова собрать Jekyll и выполнить `python3 scripts/portable_preview.py`.
+
+В сохранённые HTML-страницы встроены актуальные стили, чтобы браузер не подставлял старую версию CSS. После обновления просмотра перезагрузите страницу. Фото имеет ширину 240 px с обтеканием справа на широком экране; на экранах до 640 px оно находится над текстом.
+
+Нужны Ruby и Bundler. В папке сайта выполните:
+
+```sh
+bundle install
+bundle exec jekyll serve --host 127.0.0.1
+```
+
+Затем откройте http://127.0.0.1:4000. После сохранения Markdown-файла Jekyll пересобирает страницу; обновите вкладку браузера. Изменение `_config.yml` требует перезапуска сервера.
+
+Для одной сборки: `bundle exec jekyll build`. Готовые страницы появляются в `_site/`; редактировать их вручную не нужно.
+
+## Будущая публикация через GitHub Pages
+
+1. Проверить, свободен ли репозиторий `aleksei-piskunov/aleksei-piskunov.github.io`.
+2. Создать публичный репозиторий с этим именем. Распаковать `github-pages-source.zip`, выбрать в репозитории **Add file → Upload files** и загрузить содержимое архива в корень, сохраняя папки `_data`, `_layouts`, `assets` и `scripts`. Загружается содержимое архива, не ZIP-файл и не внешняя папка целиком. Файл `index.md` должен оказаться в корне репозитория. Сохранить через **Commit changes**. Архив содержит только исходники; `_site/` и `preview/` в него не включены.
+3. В **Settings → Pages** выбрать **Deploy from a branch**, ветку `main`, папку `/ (root)`.
+4. Дождаться успешной сборки и проверить https://aleksei-piskunov.github.io/.
+
+Встроенная сборка GitHub Pages подходит этой версии: используются обычный Jekyll и Markdown без дополнительных плагинов. Если позже понадобятся собственные зависимости сборки, можно перейти на GitHub Actions. Для проекта по адресу `username.github.io/repository/` потребуется изменить `baseurl` на `/repository`.
+
+Репозиторий и его материалы будут публичными при использовании бесплатного размещения из публичного репозитория. Старый сайт Google Sites можно сохранить и после публикации добавить на него ссылку на новый адрес.
+
+На странице своего GitHub-профиля можно через **Edit profile → Website** указать новый URL. Изменение профиля — отдельное действие; в рамках локального просмотра оно не выполнялось.
+
+Официальная инструкция: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
