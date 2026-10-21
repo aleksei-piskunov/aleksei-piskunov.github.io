@@ -15,7 +15,7 @@ Before the Technion I completed my Bachelor and Master at [HSE University](https
 
 <div class="document-links" markdown="1">
 
-[Research Statement](https://drive.google.com/file/d/1k9nNUlS6y8zTFoV_DDEFWy6DAaaLr2fj/view?usp=sharing) · [CV](https://drive.google.com/file/d/1tsEaxWQmpD0jMFABdSVcXRWRi1YrmAty/view?usp=sharing)  
+[Research Statement]({{ '/files/research-statement.pdf' | relative_url }}) · [CV]({{ '/files/cv.pdf' | relative_url }})  
 <span class="date-note">Both updated 18 October 2026.</span>
 
 </div>
