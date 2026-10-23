@@ -23,4 +23,4 @@ My main focus has been around studying geometry of **moduli spaces of pure dimen
 ## Research before PhD
 
 - Master's thesis: [Motivic Zeta-Function of a Severi-Brauer Variety]({{ '/files/Masters_Thesis__text.pdf' | relative_url }}).
-- Bachelor's thesis: [Laumon Spaces and Representations of Dominant Highest Weight]({{ 'files/Bachelors_thesis__text.pdf' | relative_url }}).
+- Bachelor's thesis: [Laumon Spaces and Representations of Dominant Highest Weight]({{ 'files/Bachelors_Thesis__text.pdf' | relative_url }}).
